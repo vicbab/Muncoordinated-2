@@ -331,7 +331,7 @@ export default class Homepage extends React.Component<{}, {
                 </Grid.Column>
                 <Grid.Column width={7}>
                   <Header as="h4" inverted>Info</Header>
-                  <p>Customized version of MUNcoordinated hosted for the South Indian Model United Nations</a></p>
+                  <p>Customized version of MUNcoordinated hosted for the South Indian Model United Nations</p>
                   <p>Copyright © 2019</p>
                 </Grid.Column>
               </Grid.Row>
