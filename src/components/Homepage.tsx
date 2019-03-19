@@ -242,20 +242,10 @@ export default class Homepage extends React.Component<{}, {
                 <p style={{ fontSize: '1.33em' }}>
                   Everyone will see all updates in real-time, without needing to refresh the page. It's like Google Docs, but for MUN.
                 </p>
-                <p style={{ fontSize: '1.33em' }}>
-                 We recommend pairing Muncoordinated with <a href="https://classroom.google.com">Google Classroom</a>, which allows you to share files, links, Google docs and strawpolls.
-                </p>
                 <Header as="h3" style={{ fontSize: '2em' }}>Cloud based</Header>
                 <p style={{ fontSize: '1.33em' }}>
                   You won't have to worry about data loss ever again. All committee activity is automatically saved to the server, 
                   so you can start sessions with all data available from the day before.
-                </p>
-                <Header as="h3" style={{ fontSize: '2em' }}>Free and open-source</Header>
-                <p style={{ fontSize: '1.33em' }}>
-                  All of Muncoordinated's features are available for free, not locked behind paywalls.
-                </p>
-                <p style={{ fontSize: '1.33em' }}>
-                  It's also <a href="https://github.com/MaxwellBo/Muncoordinated-2">open-source</a>, so you're free to customize it to your needs and liking.
                 </p>
               </Grid.Column>
               <Grid.Column floated="right" width={8}>
@@ -331,7 +321,8 @@ export default class Homepage extends React.Component<{}, {
                 </Grid.Column>
                 <Grid.Column width={7}>
                   <Header as="h4" inverted>Info</Header>
-                  <p>Customized version of MUNcoordinated hosted for the South Indian Model United Nations</p>
+                  <p>Made with 💖 by <a href="https://github.com/MaxwellBo">Max Bo</a></p>
+                  <p>Customized version of MUNcoordinated for the South Indian Model United Nations</p>
                   <p>Copyright © 2019</p>
                 </Grid.Column>
               </Grid.Row>
