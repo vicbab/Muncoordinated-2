@@ -13,12 +13,12 @@ import { Route } from 'react-router-dom';
 import './App.css';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyA9EuEf7m3YOTBhBNhoe7DcOIZJP2toL6w',
-  authDomain: 'muncoordinated.firebaseapp.com',
-  databaseURL: 'https://muncoordinated.firebaseio.com',
-  projectId: 'muncoordinated',
-  storageBucket: 'muncoordinated.appspot.com',
-  messagingSenderId: '308589918735'
+  apiKey: "AIzaSyBv-TWH4zOPRmacKenP84TGGL5pMmH32fQ",
+  authDomain: "muncoordinated-94981.firebaseapp.com",
+  databaseURL: "https://muncoordinated-94981.firebaseio.com",
+  projectId: "muncoordinated-94981",
+  storageBucket: "muncoordinated-94981.appspot.com",
+  messagingSenderId: "515236498921"
 };
 
 firebase.initializeApp(firebaseConfig);
