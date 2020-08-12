@@ -69,7 +69,7 @@ export default class Stats extends React.Component<Props, State> {
       const caucus: CaucusData = caucuses[cid];
 
       const history = caucus.history || {} as Dictionary<string, SpeakerEvent>;
-      
+
       Object.keys(history).map(hid => history[hid]).forEach((speakerEvent: SpeakerEvent) => {
         if (speakerEvent.who === member.name) { // I fucked up and used name in SpeakerEvent, not MemberID
           times += 1;
@@ -95,7 +95,7 @@ export default class Stats extends React.Component<Props, State> {
       const resolution: ResolutionData = resolutions[rid];
 
       const amendments = resolution.amendments || {} as Dictionary<AmendmentData, AmendmentData>;
-      
+
       Object.keys(amendments).map(aid => amendments[aid]).forEach((amendment: AmendmentData) => {
         if (amendment.proposer === member.name) { // I fucked up and used name in SpeakerEvent, not MemberID
           amendmentProposals += 1;
@@ -113,7 +113,7 @@ export default class Stats extends React.Component<Props, State> {
     const members = committee.members || {} as Dictionary<MemberID, MemberData>;
 
     const rows = _.sortBy(
-      Object.keys(members), 
+      Object.keys(members),
       (mid) => memberStats(committee, mid, members[mid]).times
     ).reverse().map(mid => {
       const member = members[mid];
@@ -131,12 +131,6 @@ export default class Stats extends React.Component<Props, State> {
           <Table.Cell textAlign="right">
             {hhmmss(stats.duration)}
           </Table.Cell>
-          <Table.Cell textAlign="right">
-            {stats.motionProposals}
-          </Table.Cell>
-          <Table.Cell textAlign="right">
-            {stats.amendmentProposals}
-          </Table.Cell>
         </Table.Row>
       );
     });
@@ -149,8 +143,6 @@ export default class Stats extends React.Component<Props, State> {
               <Table.HeaderCell />
               <Table.HeaderCell textAlign="right">Times Spoken</Table.HeaderCell>
               <Table.HeaderCell textAlign="right">Total Speaking Time</Table.HeaderCell>
-              <Table.HeaderCell textAlign="right">Motion Proposals</Table.HeaderCell>
-              <Table.HeaderCell textAlign="right">Amendment Proposals</Table.HeaderCell>
             </Table.Row>
           </Table.Header>
 
@@ -171,4 +163,4 @@ export default class Stats extends React.Component<Props, State> {
       return <Loading />;
     }
   }
-}  
+}

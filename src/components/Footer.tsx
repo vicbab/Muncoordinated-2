@@ -8,15 +8,15 @@ interface State {
   timerId?: NodeJS.Timer;
 }
 
-export const CLIENT_VERSION = 'v2.19.0';
+export const CLIENT_VERSION = 'v3.0.0 BETA (UNYC-CustomDev)';
 
 export const CLIENT_VERSION_LINK = (
-  <a href="https://github.com/MaxwellBo/Muncoordinated-2/releases">
+  <a href="https://github.com/vicbab/Muncoordinated-2/">
     {CLIENT_VERSION}
   </a>
 );
 
-const RELEASES_LATEST = 'https://api.github.com/repos/MaxwellBo/Muncoordinated-2/releases/latest';
+const RELEASES_LATEST = 'https://api.github.com/repos/vicbab/Muncoordinated-2/releases/latest';
 
 export default class Footer extends React.PureComponent<Props, State> {
   constructor(props: Props) {
@@ -30,7 +30,7 @@ export default class Footer extends React.PureComponent<Props, State> {
 
     return fetch(RELEASES_LATEST).then(response =>
       response.json()
-    ).then(json => 
+    ).then(json =>
       this.setState({ latestVersion: json.tag_name })
     );
   }
@@ -64,7 +64,7 @@ export default class Footer extends React.PureComponent<Props, State> {
 
     return (
       <div style={{ position: 'fixed', bottom: 5, left: 5, background: '#FFFFFF' }}>
-        {CLIENT_VERSION_LINK} by <a href="https://github.com/MaxwellBo">Max Bo</a> &amp; <a href="https://www.facebook.com/UQUNSA/">UQUNSA</a>{willShowNudge && refreshNudge}
+        {CLIENT_VERSION_LINK} by <a href="https://github.com/vicbab">Victor B.</a> &amp; <a href="https://github.com/MaxwellBo">Max Bo</a>{willShowNudge && refreshNudge}
       </div>
     );
   }

@@ -6,7 +6,7 @@ import { MemberData, MemberID } from './Member';
 import Caucus, { CaucusData, CaucusID, DEFAULT_CAUCUS, DEFAULT_CAUCUS_TIME_SECONDS, CaucusStatus } from './Caucus';
 import Resolution, { ResolutionData, ResolutionID, DEFAULT_RESOLUTION } from './Resolution';
 import Admin from './Admin';
-import { Icon, Menu, SemanticICONS, Dropdown, Container, Responsive, Sidebar, Header, Label, Divider, 
+import { Icon, Menu, SemanticICONS, Dropdown, Container, Responsive, Sidebar, Header, Label, Divider,
   List, Input, Button, Segment } from 'semantic-ui-react';
 import Stats from './Stats';
 import { MotionID, MotionData } from './Motions';
@@ -70,13 +70,13 @@ export function recoverSettings(committee?: CommitteeData): SettingsData {
 
 export function recoverCaucus(committee: CommitteeData | undefined, caucusID: CaucusID): CaucusData | undefined {
   const caucuses = committee ? committee.caucuses : {};
-  
+
   return (caucuses || {})[caucusID];
 }
 
 export function recoverResolution(committee: CommitteeData | undefined, resolutionID: ResolutionID): ResolutionData | undefined {
   const resolutions = committee ? committee.resolutions : {};
-  
+
   return (resolutions || {})[resolutionID];
 }
 
@@ -125,7 +125,7 @@ export interface CommitteeData {
 }
 
 const GENERAL_SPEAKERS_LIST: CaucusData = {
-   ...DEFAULT_CAUCUS, name: 'General Speakers List' 
+   ...DEFAULT_CAUCUS, name: 'General Speakers List'
 };
 
 export const DEFAULT_COMMITTEE: CommitteeData = {
@@ -324,9 +324,8 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
           {committee ? committee.name : <Loading small />}
         </Menu.Item>
         {makeMenuItem('Setup', 'users')}
-        {makeMenuItem('Motions', 'sort numeric descending')}
-        {makeMenuItem('Unmod', 'discussions')}
-        <Dropdown key="caucuses" item text="Caucuses" loading={!committee}>
+        {makeMenuItem('Informal', 'discussions')}
+        <Dropdown key="caucuses" item text="Formal Session" loading={!committee}>
           <Dropdown.Menu>
             {makeSubmenuButton('New caucus', 'add', pushCaucus)}
             {caucusItems}
@@ -336,12 +335,6 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
           <Dropdown.Menu>
             {makeSubmenuButton('New resolution', 'add', pushResolution)}
             {resolutionItems}
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown key="strawpolls" item text="Strawpolls" loading={!committee}>
-          <Dropdown.Menu>
-            {makeSubmenuButton('New strawpoll', 'add', pushStrawpoll)}
-            {strawpollItems}
           </Dropdown.Menu>
         </Dropdown>
         {makeMenuItem('Notes', 'sticky note outline')}
@@ -484,7 +477,7 @@ export default class Committee extends React.Component<Props, State> {
           <Route exact={true} path="/committees/:committeeID" render={renderWelcome} />
           <Route exact={true} path="/committees/:committeeID/setup" render={renderAdmin} />
           <Route exact={true} path="/committees/:committeeID/stats" component={Stats} />
-          <Route exact={true} path="/committees/:committeeID/unmod" component={Unmod} />
+          <Route exact={true} path="/committees/:committeeID/informal" component={Unmod} />
           <Route exact={true} path="/committees/:committeeID/motions" component={Motions} />
           <Route exact={true} path="/committees/:committeeID/notes" component={Notes} />
           <Route exact={true} path="/committees/:committeeID/posts" component={Files} />

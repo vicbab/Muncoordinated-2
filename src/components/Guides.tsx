@@ -18,32 +18,32 @@ import {
 } from 'semantic-ui-react';
 import Loading from './Loading';
 
-interface HomepageHeadingProps {
+interface GuidesHeadingProps {
   mobile: boolean;
 }
 
 const REPO_LINK = 'https://github.com/MaxwellBo/Muncoordinated-2';
 
 /* eslint-disable react/no-multi-comp */
-/* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
+/* Heads up! GuidesHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
  * such things.
  */
-const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
+const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
   <Container text>
     <Header
       as="h1"
-      content="QMUN 2021"
+      content="Background Guides for QMUN 2021"
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
-        fontWeight: 'bold',
+        fontWeight: 'normal',
         marginBottom: 0,
         marginTop: mobile ? '1.5em' : '3em',
       }}
     />
     <Header
       as="h2"
-      content="Quebec Model United Nations Conference 2021"
+      content="Download your background guide"
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -52,11 +52,11 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
       }}
     />
     <br />
-    <Button as="a" primary size="huge" href="/committees/-MEZXMLXacUeaJyXM4zR">
-      Access Hub A
+    <Button as="a" primary size="huge" href="/onboard">
+      Background Guide A
     </Button>
-    <Button as="a" primary size="huge" href="/#">
-      Access Hub B
+    <Button as="a" primary size="huge" href="/onboard">
+      Background Guide B
     </Button>
     <br />
   </Container>
@@ -110,10 +110,10 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
               size="large"
             >
               <Container>
-                <Menu.Item as="a" active>Home</Menu.Item>
+                <Menu.Item as="a" href="/">Home</Menu.Item>
                 <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">Hub A</Menu.Item>
                 <Menu.Item as="a" href="#">Hub B</Menu.Item>
-                <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
+                <Menu.Item as="a" href="/guides" active>Background Guides</Menu.Item>
                 <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
                 <Menu.Item position="right">
                   <Button as="a" href="/onboard" inverted={!fixed}>Log in</Button>
@@ -123,7 +123,7 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
                 </Menu.Item>
               </Container>
             </Menu>
-            <HomepageHeading mobile={false} />
+            <GuidesHeading mobile={false} />
           </Segment>
         </Visibility>
 
@@ -170,10 +170,10 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
       <Responsive {...Responsive.onlyMobile}>
         <Sidebar.Pushable>
           <Sidebar as={Menu} animation="uncover" inverted vertical visible={sidebarOpened}>
-            <Menu.Item as="a" active>Home</Menu.Item>
+            <Menu.Item as="a" >Home</Menu.Item>
             <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">Hub A</Menu.Item>
             <Menu.Item as="a" href="#">Hub B</Menu.Item>
-            <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
+            <Menu.Item as="a" href="/guides" active>Background Guides</Menu.Item>
             <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
             <Menu.Item as="a">Log in</Menu.Item>
             <Menu.Item as="a">Sign Up</Menu.Item>
@@ -192,7 +192,7 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
                   </Menu.Item>
                 </Menu>
               </Container>
-              <HomepageHeading mobile={true} />
+              <GuidesHeading mobile={true} />
             </Segment>
 
             {children}
@@ -214,7 +214,7 @@ const ResponsiveContainer = ({ children }: ResponsiveContainerProps) => (
   </React.Fragment>
 );
 
-export default class Homepage extends React.Component<{}, {
+export default class Guides extends React.Component<{}, {
   committeeNo?: number,
   delegateNo?: number
 }> {
@@ -241,33 +241,6 @@ export default class Homepage extends React.Component<{}, {
   render() {
     return (
       <ResponsiveContainer>
-
-        {/* <Segment style={{ padding: '8em 0em' }} vertical>
-          <Container text>
-            <Header as="h3" style={{ fontSize: '2em' }}>Breaking The Grid, Grabs Your Attention</Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Instead of focusing on content creation and hard work, we have learned how to master the art of doing
-              nothing by providing massive amounts of whitespace and generic content that can seem massive, monolithic
-              and worth your attention.
-          </p>
-            <Button as="a" size="large">Read More</Button>
-            <Divider
-              as="h4"
-              className="header"
-              horizontal
-              style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-            >
-              Case Studies
-            </Divider>
-            <Header as="h3" style={{ fontSize: '2em' }}>Did We Tell You About Our Bananas?</Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but it's really
-              true.
-              It took years of gene splicing and combinatory DNA research, but our bananas can really dance.
-          </p>
-            <Button as="a" size="large">I'm Still Quite Interested</Button>
-          </Container>
-        </Segment> */}
         <Segment inverted vertical style={{ padding: '5em 0em' }}>
           <Container>
             <Grid divided inverted stackable>

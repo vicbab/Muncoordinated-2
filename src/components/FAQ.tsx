@@ -18,32 +18,32 @@ import {
 } from 'semantic-ui-react';
 import Loading from './Loading';
 
-interface HomepageHeadingProps {
+interface GuidesHeadingProps {
   mobile: boolean;
 }
 
 const REPO_LINK = 'https://github.com/MaxwellBo/Muncoordinated-2';
 
 /* eslint-disable react/no-multi-comp */
-/* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
+/* Heads up! GuidesHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
  * such things.
  */
-const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
+const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
   <Container text>
     <Header
       as="h1"
-      content="QMUN 2021"
+      content="FAQ"
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
-        fontWeight: 'bold',
+        fontWeight: 'normal',
         marginBottom: 0,
         marginTop: mobile ? '1.5em' : '3em',
       }}
     />
     <Header
       as="h2"
-      content="Quebec Model United Nations Conference 2021"
+      content="Frequently Asked Questions"
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -51,14 +51,6 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
         marginTop: mobile ? '0.5em' : '1.5em',
       }}
     />
-    <br />
-    <Button as="a" primary size="huge" href="/committees/-MEZXMLXacUeaJyXM4zR">
-      Access Hub A
-    </Button>
-    <Button as="a" primary size="huge" href="/#">
-      Access Hub B
-    </Button>
-    <br />
   </Container>
 );
 
@@ -110,11 +102,11 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
               size="large"
             >
               <Container>
-                <Menu.Item as="a" active>Home</Menu.Item>
+                <Menu.Item as="a" href="/">Home</Menu.Item>
                 <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">Hub A</Menu.Item>
                 <Menu.Item as="a" href="#">Hub B</Menu.Item>
                 <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
-                <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
+                <Menu.Item as="a" href="/faq"  active>FAQ</Menu.Item>
                 <Menu.Item position="right">
                   <Button as="a" href="/onboard" inverted={!fixed}>Log in</Button>
                   <Button as="a" href="/onboard" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
@@ -123,7 +115,7 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
                 </Menu.Item>
               </Container>
             </Menu>
-            <HomepageHeading mobile={false} />
+            <GuidesHeading mobile={false} />
           </Segment>
         </Visibility>
 
@@ -170,11 +162,11 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
       <Responsive {...Responsive.onlyMobile}>
         <Sidebar.Pushable>
           <Sidebar as={Menu} animation="uncover" inverted vertical visible={sidebarOpened}>
-            <Menu.Item as="a" active>Home</Menu.Item>
+            <Menu.Item as="a" >Home</Menu.Item>
             <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">Hub A</Menu.Item>
             <Menu.Item as="a" href="#">Hub B</Menu.Item>
             <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
-            <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
+            <Menu.Item as="a" href="/faq"  active>FAQ</Menu.Item>
             <Menu.Item as="a">Log in</Menu.Item>
             <Menu.Item as="a">Sign Up</Menu.Item>
           </Sidebar>
@@ -192,7 +184,7 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
                   </Menu.Item>
                 </Menu>
               </Container>
-              <HomepageHeading mobile={true} />
+              <GuidesHeading mobile={true} />
             </Segment>
 
             {children}
@@ -214,7 +206,7 @@ const ResponsiveContainer = ({ children }: ResponsiveContainerProps) => (
   </React.Fragment>
 );
 
-export default class Homepage extends React.Component<{}, {
+export default class Guides extends React.Component<{}, {
   committeeNo?: number,
   delegateNo?: number
 }> {
@@ -241,7 +233,24 @@ export default class Homepage extends React.Component<{}, {
   render() {
     return (
       <ResponsiveContainer>
+        <Segment style={{ padding: '3em 0em' }} vertical>
+      <Grid container stackable verticalAlign="middle">
+        <Grid.Row>
+          <Grid.Column width={8}>
+            <Header as="h3" style={{ fontSize: '2em' }}>How are you?</Header>
+            <p style={{ fontSize: '1.33em' }}>
+              Pretty good, you?
+          </p>
+          </Grid.Column>
 
+        </Grid.Row>
+        {/* <Grid.Row>
+          <Grid.Column textAlign="center">
+            <Button size="huge">Check Them Out</Button>
+          </Grid.Column>
+        </Grid.Row> */}
+      </Grid>
+    </Segment>
         {/* <Segment style={{ padding: '8em 0em' }} vertical>
           <Container text>
             <Header as="h3" style={{ fontSize: '2em' }}>Breaking The Grid, Grabs Your Attention</Header>
