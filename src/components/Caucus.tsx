@@ -135,7 +135,7 @@ export default class Caucus extends React.Component<Props, State> {
 
     return (
       <Segment loading={!caucus}>
-        <a href={'/committees/' + this.props.match.params.committeeID + '/' + this.props.match.params.caucusID + '/speakerslist'}>Projector View</a>
+        <a target="_blank" href={'/committees/' + this.props.match.params.committeeID + '/' + this.props.match.params.caucusID + '/speakerslist'}>Projector View</a>
         <Input
           label={statusDropdown}
           labelPosition="right"
