@@ -513,7 +513,7 @@ export default class Motions extends React.Component<Props, State> {
       </Card.Description>
     );
 
-    // TODO: we definately can add links here
+    //TODO: we definately can add links here
     const proposerTree = (
       <div>
         <Label horizontal>

@@ -31,7 +31,6 @@ import { fieldHandler } from '../actions/handlers';
 import { MemberOption } from '../constants';
 import { putStrawpoll } from '../actions/strawpoll-actions';
 import Strawpoll, { DEFAULT_STRAWPOLL, StrawpollID, StrawpollData } from './Strawpoll';
-import SpeakersList from './SpeakersList';
 
 export function recoverMemberOptions(committee?: CommitteeData): MemberOption[] {
   if (committee) {
@@ -218,7 +217,7 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
   const committeeID: CommitteeID = props.match.params.committeeID;
 
   const makeMenuItem = (name: string, icon: SemanticICONS) => {
-    const destination = `/committees/${committeeID}/${name.toLowerCase()}`;
+    const destination = `/hub/${committeeID}/${name.toLowerCase()}`;
 
     return (
       <Menu.Item
@@ -227,7 +226,7 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
         active={props.location.pathname === destination}
         onClick={() => props.history.push(destination)}
         text={name}
-        icon={icon}
+        // icon={icon}
       />
     );
   }
@@ -246,7 +245,7 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
   }
 
   const makeMenuIcon = (name: string, icon: SemanticICONS) => {
-    const destination = `/committees/${committeeID}/${name.toLowerCase()}`;
+    const destination = `/hub/${committeeID}/${name.toLowerCase()}`;
 
     return (
       <Menu.Item
@@ -260,7 +259,7 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
   }
 
   const makeSubmenuItem = (id: string, name: string, description: string | undefined, type: 'caucuses' | 'resolutions' | 'strawpolls') => {
-    const destination = `/committees/${committeeID}/${type}/${id}`;
+    const destination = `/hub/${committeeID}/${type}/${id}`;
 
     return (
       <Dropdown.Item
@@ -277,21 +276,21 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
     const ref = putCaucus(committeeID, DEFAULT_CAUCUS);
 
     props.history
-      .push(`/committees/${committeeID}/caucuses/${ref.key}`);
+      .push(`/hub/${committeeID}/caucuses/${ref.key}`);
   }
 
   const pushResolution = () => {
     const ref = putResolution(committeeID, DEFAULT_RESOLUTION);
 
     props.history
-      .push(`/committees/${committeeID}/resolutions/${ref.key}`);
+      .push(`/hub/${committeeID}/resolutions/${ref.key}`);
   }
 
   const pushStrawpoll = () => {
     const ref = putStrawpoll(committeeID, DEFAULT_STRAWPOLL);
 
     props.history
-      .push(`/committees/${committeeID}/strawpolls/${ref.key}`);
+      .push(`/hub/${committeeID}/strawpolls/${ref.key}`);
   }
 
   const renderMenuItems = () => {
@@ -319,8 +318,8 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
         <Menu.Item
           header
           key="header"
-          onClick={() => props.history.push(`/committees/${committeeID}`)}
-          active={props.location.pathname === `/committees/${committeeID}`}
+          onClick={() => props.history.push(`/hub/${committeeID}`)}
+          active={props.location.pathname === `/hub/${committeeID}`}
         >
           {committee ? committee.name : <Loading small />}
         </Menu.Item>
@@ -367,7 +366,7 @@ export default class Committee extends React.Component<Props, State> {
     const committeeID: CommitteeID = this.props.match.params.committeeID;
 
     this.state = {
-      committeeFref: firebase.database().ref('committees').child(committeeID),
+      committeeFref: firebase.database().ref('hub').child(committeeID),
     };
   }
 
@@ -389,7 +388,7 @@ export default class Committee extends React.Component<Props, State> {
     const { committeeID } = this.props.match.params;
 
     this.props.history
-      .push(`/committees/${committeeID}/setup`);
+      .push(`/hub/${committeeID}/setup`);
   }
 
   renderAdmin = () => {
@@ -475,19 +474,18 @@ export default class Committee extends React.Component<Props, State> {
           <Container text>
             <ConnectionStatus />
           </Container>
-          <Route exact={true} path="/committees/:committeeID" render={renderWelcome} />
-          <Route exact={true} path="/committees/:committeeID/setup" render={renderAdmin} />
-          <Route exact={true} path="/committees/:committeeID/stats" component={Stats} />
-          <Route exact={true} path="/committees/:committeeID/speakers" component={SpeakersList} />
-          <Route exact={true} path="/committees/:committeeID/informal" component={Unmod} />
-          <Route exact={true} path="/committees/:committeeID/motions" component={Motions} />
-          <Route exact={true} path="/committees/:committeeID/notes" component={Notes} />
-          <Route exact={true} path="/committees/:committeeID/posts" component={Files} />
-          <Route exact={true} path="/committees/:committeeID/settings" component={Settings} />
-          <Route exact={true} path="/committees/:committeeID/help" component={Help} />
-          <Route path="/committees/:committeeID/caucuses/:caucusID" component={Caucus} />
-          <Route path="/committees/:committeeID/resolutions/:resolutionID/:tab?" component={Resolution} />
-          <Route path="/committees/:committeeID/strawpolls/:strawpollID" component={Strawpoll} />
+          <Route exact={true} path="/hub/:committeeID" render={renderWelcome} />
+          <Route exact={true} path="/hub/:committeeID/setup" render={renderAdmin} />
+          <Route exact={true} path="/hub/:committeeID/stats" component={Stats} />
+          <Route exact={true} path="/hub/:committeeID/informal" component={Unmod} />
+          <Route exact={true} path="/hub/:committeeID/motions" component={Motions} />
+          <Route exact={true} path="/hub/:committeeID/notes" component={Notes} />
+          <Route exact={true} path="/hub/:committeeID/posts" component={Files} />
+          <Route exact={true} path="/hub/:committeeID/settings" component={Settings} />
+          <Route exact={true} path="/hub/:committeeID/help" component={Help} />
+          <Route path="/hub/:committeeID/caucuses/:caucusID" component={Caucus} />
+          <Route path="/hub/:committeeID/resolutions/:resolutionID/:tab?" component={Resolution} />
+          <Route path="/hub/:committeeID/strawpolls/:strawpollID" component={Strawpoll} />
           <Footer />
         </ResponsiveNav>
       </React.Fragment>

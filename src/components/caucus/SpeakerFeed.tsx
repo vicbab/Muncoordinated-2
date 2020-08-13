@@ -1,6 +1,7 @@
 /**
  * This is truly the most fucked up file in the entire codebase.
  * Mercy up on all those who must modify this.
+ * ***** REPLY from @vicbab: smh
  */
 
 import * as firebase from 'firebase/app';
@@ -55,7 +56,7 @@ export class SpeakerFeedEntry extends React.PureComponent<{
     // HACK
     // HERE BE DRAGONS
     // The only reason I'm doing this is because I honestly couldn't give a shit about propogating
-    // the caucusRef all the way down. Furthermore, the only time this should ever be called is when the 
+    // the caucusRef all the way down. Furthermore, the only time this should ever be called is when the
     // SpeakerEvent is in the "queue" zone, meaning we'll pop up into the "caucus" field.
     const caucusRef = (fref.parent as firebase.database.Reference).parent as firebase.database.Reference;
 
@@ -99,7 +100,7 @@ export class SpeakerFeedEntry extends React.PureComponent<{
       </Feed.Content>
     )
   }
-  
+
   render() {
     const { draggableProvided } = this.props;
 
@@ -139,7 +140,7 @@ export const SpeakerFeed = (props: {
   const eventItems = Object.keys(events).map((key, index) =>
     (
       <Draggable key={key} draggableId={key} index={index}>
-        {(provided, snapshot) => 
+        {(provided, snapshot) =>
           <SpeakerFeedEntry
             draggableProvided={provided}
             key={key}
@@ -189,12 +190,12 @@ export const SpeakerFeed = (props: {
     >
       <Droppable droppableId="droppable">
         {(provided, snapshot) =>
-          <div 
+          <div
             ref={provided.innerRef}
             {...provided.droppableProps}
           >
-            <Feed 
-              size="large" 
+            <Feed
+              size="large"
             >
               {eventItems}
             </Feed>

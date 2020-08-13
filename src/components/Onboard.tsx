@@ -84,27 +84,27 @@ export default class Onboard extends React.Component<Props, State> {
     return (
       <React.Fragment>
         {!user && <Message
-          error 
+          error
           attached="top"
           content="Please login or create an account before creating a committee"
         />}
         <Segment attached={!user ? 'bottom' : undefined} >
           <Form onSubmit={this.handleSubmit}>
-            <Form.Input 
-              label="Name" 
-              name="name" 
+            <Form.Input
+              label="Name"
+              name="name"
               fluid
               required
               error={this.state.name === ''}
-              placeholder="Committee name" 
-              onChange={this.handleInput} 
+              placeholder="Committee name"
+              onChange={this.handleInput}
             />
-            <Form.Input 
-              label="Topic" 
-              name="topic" 
+            <Form.Input
+              label="Topic"
+              name="topic"
               fluid
-              placeholder="Committee topic" 
-              onChange={this.handleInput} 
+              placeholder="Committee topic"
+              onChange={this.handleInput}
             />
             <Form.Input
               label="Chairpeople"
@@ -120,9 +120,9 @@ export default class Onboard extends React.Component<Props, State> {
               placeholder="Conference name"
               onChange={this.handleInput}
             />
-            <Form.Button 
-              primary 
-              fluid 
+            <Form.Button
+              primary
+              fluid
               disabled={!this.state.user || this.state.name === ''}
             >
               Create Committee
@@ -139,7 +139,7 @@ export default class Onboard extends React.Component<Props, State> {
       <Container style={{ padding: '1em 0em' }}>
         <ConnectionStatus />
         <Grid
-          columns="equal" 
+          columns="equal"
           stackable
         >
           <Grid.Row>
@@ -148,7 +148,7 @@ export default class Onboard extends React.Component<Props, State> {
               Muncoordinated
               </Header>
               <Divider hidden/>
-              Muncoordinated officially supports recent versions of Google Chrome. 
+              Muncoordinated officially supports recent versions of Google Chrome.
                 Use of older and other browsers has been known to cause bugs and data loss.
             </Grid.Column>
           </Grid.Row>

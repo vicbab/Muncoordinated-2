@@ -31,7 +31,6 @@ import { fieldHandler } from '../actions/handlers';
 import { MemberOption } from '../constants';
 import { putStrawpoll } from '../actions/strawpoll-actions';
 import Strawpoll, { DEFAULT_STRAWPOLL, StrawpollID, StrawpollData } from './Strawpoll';
-import SpeakersList from './SpeakersList';
 
 export function recoverMemberOptions(committee?: CommitteeData): MemberOption[] {
   if (committee) {
@@ -227,7 +226,7 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
         active={props.location.pathname === destination}
         onClick={() => props.history.push(destination)}
         text={name}
-        icon={icon}
+        // icon={icon}
       />
     );
   }
@@ -478,7 +477,6 @@ export default class Committee extends React.Component<Props, State> {
           <Route exact={true} path="/committees/:committeeID" render={renderWelcome} />
           <Route exact={true} path="/committees/:committeeID/setup" render={renderAdmin} />
           <Route exact={true} path="/committees/:committeeID/stats" component={Stats} />
-          <Route exact={true} path="/committees/:committeeID/speakers" component={SpeakersList} />
           <Route exact={true} path="/committees/:committeeID/informal" component={Unmod} />
           <Route exact={true} path="/committees/:committeeID/motions" component={Motions} />
           <Route exact={true} path="/committees/:committeeID/notes" component={Notes} />
