@@ -18,7 +18,7 @@ interface Props {
   autoNextSpeaker: boolean;
 }
 
-export function CaucusNextSpeaking(props: Props) {
+export function SpeakersListVisual(props: Props) {
   const [user] = useAuthState(firebase.auth());
   console.log("allo la gagne")
   const handleKeyDown = (ev: KeyboardEvent) => {
@@ -116,29 +116,11 @@ export function CaucusNextSpeaking(props: Props) {
   const nextable = hasNowSpeaking || hasNextSpeaking;
 
   const stageButton = (
-    <Button
-      basic
-      icon
-      positive
-      disabled={!nextable}
-      onClick={nextSpeaker}
-    >
-      <Icon name="arrow up" />
-      Stage
-    </Button>
+    <p></p>
   );
 
   const startButton = (
-    <Button
-      basic
-      icon
-      positive
-      disabled={!nextable}
-      onClick={startTimer}
-    >
-      <Icon name="hourglass start" />
-      Start
-    </Button>
+    <p></p>
   )
 
   const nextButton = (
@@ -155,29 +137,11 @@ export function CaucusNextSpeaking(props: Props) {
   );
 
   const stopButton = (
-    <Button
-      basic
-      icon
-      negative
-      disabled={!nextable}
-      onClick={nextSpeaker}
-    >
-      <Icon name="hourglass end" />
-      Stop
-    </Button>
+    <p></p>
   );
 
   const interlaceButton = (
-    <Button
-      icon
-      disabled={!interlaceable}
-      basic
-      color="purple"
-      onClick={interlace}
-    >
-      <Icon name="random" />
-      Order
-    </Button>
+    <p></p>
   );
 
   let button = nextButton;

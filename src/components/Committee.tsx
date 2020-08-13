@@ -32,6 +32,8 @@ import { MemberOption } from '../constants';
 import { putStrawpoll } from '../actions/strawpoll-actions';
 import Strawpoll, { DEFAULT_STRAWPOLL, StrawpollID, StrawpollData } from './Strawpoll';
 import SpeakersList from './SpeakersList';
+import { SpeakerFeed } from './caucus/SpeakerFeed'
+// import { CaucusNextSpeaking } from './caucus/CaucusNextSpeaking'
 
 export function recoverMemberOptions(committee?: CommitteeData): MemberOption[] {
   if (committee) {
@@ -294,6 +296,13 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
       .push(`/committees/${committeeID}/strawpolls/${ref.key}`);
   }
 
+  /*
+   *{makeMenuItem('Notes', 'sticky note outline')}
+   {makeMenuItem('Posts', 'file outline')}
+   *
+   *
+   */
+
   const renderMenuItems = () => {
     const { committee } = props;
 
@@ -338,8 +347,6 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
             {resolutionItems}
           </Dropdown.Menu>
         </Dropdown>
-        {makeMenuItem('Notes', 'sticky note outline')}
-        {makeMenuItem('Posts', 'file outline')}
         {makeMenuItem('Stats', 'chart bar')}
         <Menu.Menu key="icon-submenu" position="right">
           {makeMenuIcon('Settings', 'settings')}
@@ -479,6 +486,7 @@ export default class Committee extends React.Component<Props, State> {
           <Route exact={true} path="/committees/:committeeID/setup" render={renderAdmin} />
           <Route exact={true} path="/committees/:committeeID/stats" component={Stats} />
           <Route exact={true} path="/committees/:committeeID/speakers" component={SpeakersList} />
+          <Route exact={true} path="/committees/:committeeID/:caucusID/speakerslist" component={SpeakersList} />
           <Route exact={true} path="/committees/:committeeID/informal" component={Unmod} />
           <Route exact={true} path="/committees/:committeeID/motions" component={Motions} />
           <Route exact={true} path="/committees/:committeeID/notes" component={Notes} />
@@ -486,6 +494,7 @@ export default class Committee extends React.Component<Props, State> {
           <Route exact={true} path="/committees/:committeeID/settings" component={Settings} />
           <Route exact={true} path="/committees/:committeeID/help" component={Help} />
           <Route path="/committees/:committeeID/caucuses/:caucusID" component={Caucus} />
+
           <Route path="/committees/:committeeID/resolutions/:resolutionID/:tab?" component={Resolution} />
           <Route path="/committees/:committeeID/strawpolls/:strawpollID" component={Strawpoll} />
           <Footer />

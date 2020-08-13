@@ -139,8 +139,10 @@ export const SpeakerFeed = (props: {
 
   const eventItems = Object.keys(events).map((key, index) =>
     (
+
       <Draggable key={key} draggableId={key} index={index}>
         {(provided, snapshot) =>
+
           <SpeakerFeedEntry
             draggableProvided={provided}
             key={key}
@@ -149,6 +151,7 @@ export const SpeakerFeed = (props: {
             speaking={speaking}
             speakerTimer={speakerTimer}
           />
+          
         }
       </Draggable>
     )
