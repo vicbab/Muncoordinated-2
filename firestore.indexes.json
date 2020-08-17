@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "test",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "test1",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "test2",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

@@ -368,12 +368,13 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
 }
 
 export default class Committee extends React.Component<Props, State> {
+
   constructor(props: Props) {
     super(props);
 
     const committeeID: CommitteeID = this.props.match.params.committeeID;
-
     this.state = {
+
       committeeFref: firebase.database().ref('committees').child(committeeID),
     };
   }
@@ -385,10 +386,12 @@ export default class Committee extends React.Component<Props, State> {
   }
 
   componentDidMount() {
+    console.log('Mounted');
     this.state.committeeFref.on('value', this.firebaseCallback);
   }
 
   componentWillUnmount() {
+    console.log('Unmounting');
     this.state.committeeFref.off('value', this.firebaseCallback);
   }
 

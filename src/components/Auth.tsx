@@ -23,10 +23,11 @@ interface State {
   resetting: boolean;
   unsubscribe?: () => void;
   committees?: Dictionary<CommitteeID, CommitteeData>;
+  isAdmin?: boolean;
 }
 
 interface Props {
-  allowSignup?: boolean; 
+  allowSignup?: boolean;
   allowNewCommittee?: boolean;
 }
 
@@ -96,9 +97,9 @@ export class Login extends React.Component<Props, State> {
     this.setState({ creating: true });
 
     firebase.auth().createUserWithEmailAndPassword(email, password).then(() => {
-      const success = { 
+      const success = {
         name: 'Account created',
-        message: 'Your account was successfully created' 
+        message: 'Your account was successfully created'
       };
 
       this.setState({ creating: false, success });
@@ -176,7 +177,7 @@ export class Login extends React.Component<Props, State> {
     const { handleDismissError } = this;
 
     const err = this.state.error;
-    
+
     return (
       <Message
         key="error"
@@ -250,7 +251,7 @@ export class Login extends React.Component<Props, State> {
   }
 
   renderLogin = () => {
-    const { setEmail, setPassword, handleCreate, 
+    const { setEmail, setPassword, handleCreate,
       handleLogin, handlePasswordReset, handleForgotPassword, handleResetPasswordCancel } = this;
     const { loggingIn, creating, user, resetting, email, password, mode } = this.state;
     const { allowSignup } = this.props;
@@ -265,7 +266,7 @@ export class Login extends React.Component<Props, State> {
 
     const err = this.state.error;
     const succ = this.state.success;
-    
+
     return (
       <Segment attached="bottom">
         <Form error={!!err} success={!!succ} loading={user === undefined}>
@@ -282,7 +283,7 @@ export class Login extends React.Component<Props, State> {
             key="password"
             label="Password"
             type="password"
-            placeholder="correct horse battery staple"
+            placeholder="Enter your password"
             value={password}
             onChange={setPassword}
           >
@@ -291,20 +292,20 @@ export class Login extends React.Component<Props, State> {
           {this.renderSuccess()}
           {this.renderError()}
           <Button.Group fluid>
-            {mode === Mode.Login && 
-              <Button 
-                primary 
-                onClick={handleLogin} 
-                loading={loggingIn} 
+            {mode === Mode.Login &&
+              <Button
+                primary
+                onClick={handleLogin}
+                loading={loggingIn}
               >
                 Login
               </Button>
             }
             {mode === Mode.ForgotPassword &&
-              <Button 
+              <Button
                 primary
-                onClick={handlePasswordReset} 
-                loading={resetting} 
+                onClick={handlePasswordReset}
+                loading={resetting}
                 disabled={!email}
               >
                 Reset Password
@@ -314,9 +315,9 @@ export class Login extends React.Component<Props, State> {
           {allowSignup && mode === Mode.Login && signupButton}
           {mode === Mode.ForgotPassword && cancelButton}
           </Button.Group>
-          {mode === Mode.Login && 
-            <a 
-              onClick={handleForgotPassword} 
+          {mode === Mode.Login &&
+            <a
+              onClick={handleForgotPassword}
               style={{'cursor': 'pointer'}}
             >
               Forgot password?
@@ -339,8 +340,8 @@ export class Login extends React.Component<Props, State> {
   }
 }
 
-export class ModalLogin extends React.Component<{}, 
-  { user?: firebase.User | null 
+export class ModalLogin extends React.Component<{},
+  { user?: firebase.User | null
     unsubscribe?: () => void
   }> {
   constructor(props: {}) {
@@ -382,7 +383,7 @@ export class ModalLogin extends React.Component<{},
 
   render() {
     return (
-      <Modal 
+      <Modal
         trigger={this.renderModalTrigger()}
         size="tiny"
         dimmer

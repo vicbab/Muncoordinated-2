@@ -16,7 +16,7 @@ export const CLIENT_VERSION_LINK = (
   </a>
 );
 
-const RELEASES_LATEST = 'https://api.github.com/repos/vicbab/Muncoordinated-2/releases/latest';
+const RELEASES_LATEST = 'https://api.github.com/repos/MaxwellBo/Muncoordinated-2/releases/latest';
 
 export default class Footer extends React.PureComponent<Props, State> {
   constructor(props: Props) {
