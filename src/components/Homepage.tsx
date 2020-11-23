@@ -53,10 +53,7 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     />
     <br />
     <Button as="a" primary size="huge" href="/committees/-MEZXMLXacUeaJyXM4zR">
-      Access Hub A
-    </Button>
-    <Button as="a" primary size="huge" href="/#">
-      Access Hub B
+      Access Hub
     </Button>
     <br />
   </Container>
