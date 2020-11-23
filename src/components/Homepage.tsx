@@ -111,8 +111,7 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
             >
               <Container>
                 <Menu.Item as="a" active>Home</Menu.Item>
-                <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">Hub A</Menu.Item>
-                <Menu.Item as="a" href="#">Hub B</Menu.Item>
+                <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
                 <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
                 <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
                 <Menu.Item position="right">
@@ -171,8 +170,7 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
         <Sidebar.Pushable>
           <Sidebar as={Menu} animation="uncover" inverted vertical visible={sidebarOpened}>
             <Menu.Item as="a" active>Home</Menu.Item>
-            <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">Hub A</Menu.Item>
-            <Menu.Item as="a" href="#">Hub B</Menu.Item>
+            <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
             <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
             <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
             <Menu.Item as="a">Log in</Menu.Item>

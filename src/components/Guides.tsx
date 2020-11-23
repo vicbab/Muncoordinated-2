@@ -52,11 +52,8 @@ const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
       }}
     />
     <br />
-    <Button as="a" primary size="huge" href="/onboard">
-      Background Guide A
-    </Button>
-    <Button as="a" primary size="huge" href="/onboard">
-      Background Guide B
+    <Button as="a" primary size="huge" href="/Background-guide.pdf">
+      Click to download your Background Guide
     </Button>
     <br />
   </Container>
@@ -111,8 +108,7 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
             >
               <Container>
                 <Menu.Item as="a" href="/">Home</Menu.Item>
-                <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">Hub A</Menu.Item>
-                <Menu.Item as="a" href="#">Hub B</Menu.Item>
+                <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
                 <Menu.Item as="a" href="/guides" active>Background Guides</Menu.Item>
                 <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
                 <Menu.Item position="right">
