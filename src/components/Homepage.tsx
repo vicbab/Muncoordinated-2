@@ -114,7 +114,7 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
                 <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
 
                 <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
-                <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
+                //<Menu.Item as="a" href="/faq">FAQ</Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading mobile={false} />
@@ -167,7 +167,7 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
             <Menu.Item as="a" active>Home</Menu.Item>
             <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
             <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
-            <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
+            //<Menu.Item as="a" href="/faq">FAQ</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened} onClick={this.handlePusherClick} style={{ minHeight: '100vh' }}>
