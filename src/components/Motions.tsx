@@ -51,11 +51,17 @@ enum MotionType {
   ResumeDebate = 'Resume Debate',
   CloseDebate = 'Close Debate',
   ReorderDraftResolutions = 'Reorder Draft Resolutions',
-  ProposeStrawpoll = 'Propose Strawpoll'
+  ProposeStrawpoll = 'Propose Strawpoll',
+  AddToListRequest = 'Request to be added to the Speaker\'s list',
+  GeneralNoteToDAIS = 'Note to DAIS'
 }
 
 const disruptiveness = (motionType: MotionType): number => {
   switch (motionType) {
+    case MotionType.AddToListRequest:
+      return 1;
+    case MotionType.GeneralNoteToDAIS:
+      return 1;
     case MotionType.ExtendUnmoderatedCaucus:
       return 1;
     case MotionType.ExtendModeratedCaucus:
@@ -157,6 +163,7 @@ const hasDetail = (motionType: MotionType): boolean => {
     case MotionType.OpenModeratedCaucus:
     case MotionType.IntroduceDraftResolution:
     case MotionType.IntroduceAmendment:
+    case MotionType.GeneralNoteToDAIS:
     case MotionType.ProposeStrawpoll:
       return true;
     default:
@@ -167,6 +174,8 @@ const hasDetail = (motionType: MotionType): boolean => {
 const hasTextArea = (motionType: MotionType): boolean => {
   switch (motionType) {
     case MotionType.IntroduceAmendment:
+      return true;
+    case MotionType.GeneralNoteToDAIS:
       return true;
     default:
       return false;
@@ -180,6 +189,7 @@ const detailLabel = (motionType: MotionType): string => {
     case MotionType.IntroduceDraftResolution:
       return 'Name';
     case MotionType.IntroduceAmendment:
+    case MotionType.GeneralNoteToDAIS:
       return 'Text';
     case MotionType.ProposeStrawpoll:
       return 'Question';
@@ -247,7 +257,8 @@ export interface MotionData {
   type: MotionType;
   caucusTarget?: CaucusID;
   resolutionTarget?: ResolutionID;
-  deleted?: boolean
+  deleted?: boolean;
+  timestamp?:number;
 }
 
 interface Props extends RouteComponentProps<URLParameters> {
@@ -260,21 +271,23 @@ interface State {
 }
 
 const MOTION_TYPE_OPTIONS = [
-  MotionType.OpenUnmoderatedCaucus, // implemented
-  MotionType.OpenModeratedCaucus, // implemented
-  MotionType.ExtendUnmoderatedCaucus, // partially implemented
-  MotionType.ExtendModeratedCaucus, // partially implemented
-  MotionType.CloseModeratedCaucus, // implemented
-  MotionType.IntroduceDraftResolution, // implemented
-  MotionType.IntroduceAmendment, // implemented
-  MotionType.VoteOnResolution,
-  MotionType.ProposeStrawpoll,
-  MotionType.SuspendDraftResolutionSpeakersList,
-  MotionType.OpenDebate,
-  MotionType.SuspendDebate,
-  MotionType.ResumeDebate,
-  MotionType.CloseDebate,
-  MotionType.ReorderDraftResolutions,
+  MotionType.AddToListRequest,
+  MotionType.GeneralNoteToDAIS
+  // MotionType.OpenUnmoderatedCaucus, // implemented
+  // MotionType.OpenModeratedCaucus, // implemented
+  // MotionType.ExtendUnmoderatedCaucus, // partially implemented
+  // MotionType.ExtendModeratedCaucus, // partially implemented
+  // MotionType.CloseModeratedCaucus, // implemented
+  // MotionType.IntroduceDraftResolution, // implemented
+  // MotionType.IntroduceAmendment, // implemented
+  // MotionType.VoteOnResolution,
+  // MotionType.ProposeStrawpoll,
+  // MotionType.SuspendDraftResolutionSpeakersList,
+  // MotionType.OpenDebate,
+  // MotionType.SuspendDebate,
+  // MotionType.ResumeDebate,
+  // MotionType.CloseDebate,
+  // MotionType.ReorderDraftResolutions,
 ].map(makeDropdownOption);
 
 const DEFAULT_MOTION: MotionData = {

@@ -55,6 +55,9 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     <Button as="a" primary size="huge" href="/committees/-MEZXMLXacUeaJyXM4zR">
       Access Hub
     </Button>
+    <Button as="a" primary size="huge" href="/Background-guide.pdf">
+      Download your background guide
+    </Button>
     <br />
   </Container>
 );
@@ -111,12 +114,6 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
                 <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
                 <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
                 <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
-                <Menu.Item position="right">
-                  <Button as="a" href="/onboard" inverted={!fixed}>Log in</Button>
-                  <Button as="a" href="/onboard" inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading mobile={false} />
@@ -170,8 +167,6 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
             <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
             <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
             <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
-            <Menu.Item as="a">Log in</Menu.Item>
-            <Menu.Item as="a">Sign Up</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened} onClick={this.handlePusherClick} style={{ minHeight: '100vh' }}>
@@ -180,10 +175,6 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
                 <Menu inverted pointing secondary size="large">
                   <Menu.Item onClick={this.handleToggle}>
                     <Icon name="sidebar" />
-                  </Menu.Item>
-                  <Menu.Item position="right">
-                    <Button as="a" inverted href="/onboard" >Log in</Button>
-                    <Button as="a" inverted href="/onboard" style={{ marginLeft: '0.5em' }}>Sign Up</Button>
                   </Menu.Item>
                 </Menu>
               </Container>
@@ -280,20 +271,12 @@ export default class Homepage extends React.Component<{}, {
                     {/* <List.Item as="a">Contact Us</List.Item> TODO */}
                   </List>
                 </Grid.Column>
-                <Grid.Column width={3}>
-                  <Header inverted as="h4" content="Services" />
-                  <List link inverted>
-                    <List.Item as="a" href="https://github.com/MaxwellBo/Muncoordinated-2/issues">Support</List.Item>
-                    <List.Item as="a" href="https://www.helpmymun.com/">MUN Resources</List.Item>
-                    {/* <List.Item as="a">FAQ</List.Item> TODO*/}
-                  </List>
-                </Grid.Column>
                 <Grid.Column width={7}>
                   <Header as="h4" inverted>Info</Header>
-                  <p>Made by <a href="https://github.com/vicbab">Victor Babin</a>,
+                  <p>Made by <a href="https://github.com/vicbab">Vic SB</a>,
                   adapted from Muncoordinated by <a href="https://github.com/MaxwellBo">Max Bo</a>
                   </p>
-                  <p>Copyright © 2019</p>
+                  <p>Copyright © 2020</p>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

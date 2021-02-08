@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import * as firebase from 'firebase/app';
 import * as _ from 'lodash';
@@ -445,7 +446,7 @@ export default class Resolution extends React.Component<Props, State> {
           color={color}
           icon
         >
-          <Icon 
+          <Icon
             name={icon}
             color={color === 'yellow' ? 'black' : undefined}
           />
@@ -505,14 +506,14 @@ export default class Resolution extends React.Component<Props, State> {
     const againsts = votesByVoters.filter(v => v === Vote.Against).length;
     const remaining = sortedPresentAndCanVote.length - votesByVoters.length;
 
-    const requiredMajority: Majority = resolution 
+    const requiredMajority: Majority = resolution
       ? (resolution.requiredMajority || DEFAULT_RESOLUTION.requiredMajority as Majority)
       : DEFAULT_RESOLUTION.requiredMajority as Majority;
 
     const threshold = getThreshold(requiredMajority, committee, fors, againsts);
     const thresholdName = getThresholdName(requiredMajority);
 
-    const resolutionPassed: boolean = fors >= threshold && !resolutionVetoed; 
+    const resolutionPassed: boolean = fors >= threshold && !resolutionVetoed;
     const resolutionFailed: boolean = fors + remaining < threshold && !resolutionVetoed;
 
     const COLUMNS = 3;
@@ -542,18 +543,18 @@ export default class Resolution extends React.Component<Props, State> {
         {resolutionPassed && <Statistic inverted>
           <Statistic.Value>Passed</Statistic.Value>
           <Statistic.Label>{fors} clears the required {thresholdName} of {threshold}</Statistic.Label>
-          {requiredMajority === Majority.TwoThirdsNoAbstentions && 
+          {requiredMajority === Majority.TwoThirdsNoAbstentions &&
             <Statistic.Label>Further votes may change the result from 'Passed'</Statistic.Label>
           }
-        </Statistic>} 
+        </Statistic>}
         {resolutionFailed && <Statistic inverted>
           <Statistic.Value>Failed</Statistic.Value>
           <Statistic.Label>There are insufficient votes remaining to achieve a {thresholdName}</Statistic.Label>
-        </Statistic>} 
+        </Statistic>}
         {resolutionVetoed && <Statistic inverted>
           <Statistic.Value>Vetoed</Statistic.Value>
           <Statistic.Label>{vetoes[0].name} was the first to veto the resolution</Statistic.Label>
-        </Statistic>} 
+        </Statistic>}
         <Segment inverted>
           {this.renderMajoritySelector(resolution)}
         </Segment>
@@ -567,7 +568,7 @@ export default class Resolution extends React.Component<Props, State> {
 
     const memberOptions = recoverMemberOptions(this.state.committee);
 
-    // TFW no null coalescing operator 
+    // TFW no null coalescing operator
     const proposer = resolution
       ? resolution.proposer
       : undefined;

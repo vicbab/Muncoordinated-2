@@ -335,6 +335,7 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
         </Menu.Item>
         {makeMenuItem('Setup', 'users')}
         {makeMenuItem('Informal', 'discussions')}
+        {makeMenuItem('Motions', 'discussions')}
         <Dropdown key="caucuses" item text="Formal Session" loading={!committee}>
           <Dropdown.Menu>
             {makeSubmenuButton('New caucus', 'add', pushCaucus)}
@@ -345,6 +346,12 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
           <Dropdown.Menu>
             {makeSubmenuButton('New resolution', 'add', pushResolution)}
             {resolutionItems}
+          </Dropdown.Menu>
+        </Dropdown>
+        <Dropdown key="strawpoll" item text="Strawpolls" loading={!committee}>
+          <Dropdown.Menu>
+            {makeSubmenuButton('New strawpoll', 'add', pushStrawpoll)}
+            {strawpollItems}
           </Dropdown.Menu>
         </Dropdown>
         {makeMenuItem('Stats', 'chart bar')}

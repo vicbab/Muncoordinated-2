@@ -120,7 +120,17 @@ export default class Onboard extends React.Component<Props, State> {
               placeholder="Conference name"
               onChange={this.handleInput}
             />
+            <Form.Button
+                primary
+                fluid
+                disabled={!this.state.user || this.state.name === ''}
+              >
+                Create committee
+                <Icon name="arrow right" />
+                </Form.Button>
           </Form>
+
+
         </Segment>
       </React.Fragment>
     );
@@ -147,7 +157,7 @@ export default class Onboard extends React.Component<Props, State> {
           <Divider />
           <Grid.Row>
             <Grid.Column>
-              <Login allowSignup={false} allowNewCommittee={false}/>
+              <Login allowSignup={false} allowNewCommittee={true}/>
             </Grid.Column>
             <Grid.Column>
               {this.renderNewCommitteeForm()}
