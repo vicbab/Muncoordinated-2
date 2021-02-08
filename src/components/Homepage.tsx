@@ -53,10 +53,10 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     />
     <br />
     <Button as="a" primary size="huge" href="/committees/-MEZXMLXacUeaJyXM4zR">
-      Access Hub
+      Hub GA3-A
     </Button>
-    <Button as="a" primary size="huge" href="/Background-guide.pdf">
-      Download your background guide
+    <Button as="a" primary size="huge" href="/committees/-MT2m3_0wvJdSHeKrk4-">
+      HUB GA3-B
     </Button>
     <br />
   </Container>
@@ -112,6 +112,7 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
               <Container>
                 <Menu.Item as="a" active>Home</Menu.Item>
                 <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
+
                 <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
                 <Menu.Item as="a" href="/faq">FAQ</Menu.Item>
               </Container>
