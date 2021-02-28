@@ -23,6 +23,7 @@ interface HomepageHeadingProps {
 }
 
 const REPO_LINK = 'https://github.com/MaxwellBo/Muncoordinated-2';
+const logo = '../../logo.png'
 
 /* eslint-disable react/no-multi-comp */
 /* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
@@ -51,13 +52,22 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
         marginTop: mobile ? '0.5em' : '1.5em',
       }}
     />
+
     <br />
     <Button as="a" primary size="huge" href="/committees/-MEZXMLXacUeaJyXM4zR">
       Hub GA3-A
     </Button>
     <Button as="a" primary size="huge" href="/committees/-MT2m3_0wvJdSHeKrk4-">
-      HUB GA3-B
+      Hub GA3-B
     </Button>
+    <br />
+    <br />
+    <Image
+      centered
+      size="small"
+      rounded
+      src="/images/logo.png"
+    />
     <br />
   </Container>
 );
@@ -114,7 +124,7 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
                 <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
 
                 <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
-                //<Menu.Item as="a" href="/faq">FAQ</Menu.Item>
+
               </Container>
             </Menu>
             <HomepageHeading mobile={false} />
@@ -126,6 +136,7 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
     );
   }
 }
+//<Menu.Item as="a" href="/faq">FAQ</Menu.Item>
 
 interface MobileContainerProps {
   children?: React.ReactNode;

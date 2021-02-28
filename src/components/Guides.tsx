@@ -52,7 +52,7 @@ const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
       }}
     />
     <br />
-    <Button as="a" primary size="huge" href="/GA3-QMUN-2021.pdf">
+    <Button as="a" primary size="huge" href="/GA3-QMUN-2021.pdf" target="_blank">
       Click to download your Background Guide
     </Button>
     <br />
@@ -110,7 +110,6 @@ class DesktopContainer extends React.Component<DesktopContainerProps, DesktopCon
                 <Menu.Item as="a" href="/">Home</Menu.Item>
                 <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
                 <Menu.Item as="a" href="/guides" active>Background Guides</Menu.Item>
-                //<Menu.Item as="a" href="/faq">FAQ</Menu.Item>
               </Container>
             </Menu>
             <GuidesHeading mobile={false} />
@@ -164,7 +163,6 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
             <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">Hub A</Menu.Item>
             <Menu.Item as="a" href="#">Hub B</Menu.Item>
             <Menu.Item as="a" href="/guides" active>Background Guides</Menu.Item>
-            //<Menu.Item as="a" href="/faq">FAQ</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened} onClick={this.handlePusherClick} style={{ minHeight: '100vh' }}>
