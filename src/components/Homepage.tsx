@@ -42,6 +42,13 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
         marginTop: mobile ? '1.5em' : '3em',
       }}
     />
+    <br />
+    <Image
+      centered
+      size="small"
+      rounded
+      src="/images/logo.png"
+    />
     <Header
       as="h2"
       content="Quebec Model United Nations Conference 2021"
@@ -62,12 +69,22 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     </Button>
     <br />
     <br />
-    <Image
-      centered
-      size="small"
-      rounded
-      src="/images/logo.png"
-    />
+    <Button as="a" primary size="huge" href="https://zoom.us/j/99192490018?pwd=YVM4T2JSOW5nUTdXYncwUHRXTStEdz09">
+      Zoom GA3-A
+    </Button>
+    <Button as="a" primary size="huge" href="https://uqam.zoom.us/j/88194303294?pwd=eVZHaTlxRHJySEU0SDM5Z1daUi9EZz09">
+      Zoom GA3-B
+    </Button>
+    <br />
+    <br />
+    ID GA3-A: 991 9249 0018
+    <br />
+    ID GA3-B: 881 9430 3294
+    <br />
+    <br />
+    Password : QMUN2021
+    <br />
+    <br />
     <br />
   </Container>
 );
@@ -178,7 +195,6 @@ class MobileContainer extends React.Component<MobileContainerProps, MobileContai
             <Menu.Item as="a" active>Home</Menu.Item>
             <Menu.Item as="a" href="/committees/-MEZXMLXacUeaJyXM4zR">QMUN Hub</Menu.Item>
             <Menu.Item as="a" href="/guides">Background Guides</Menu.Item>
-            //<Menu.Item as="a" href="/faq">FAQ</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened} onClick={this.handlePusherClick} style={{ minHeight: '100vh' }}>
@@ -273,6 +289,12 @@ export default class Homepage extends React.Component<{}, {
                 <Grid.Column width={3}>
                   <Header inverted as="h4" content="About" />
                   <List link inverted>
+                  <List.Item
+                    as="a"
+                    href="https://www.facebook.com/unyc.contact"
+                  >
+                    Facebook Page
+                  </List.Item>
                     <List.Item as="a" href={REPO_LINK}>Source</List.Item>
                     <List.Item
                       as="a"
@@ -280,7 +302,7 @@ export default class Homepage extends React.Component<{}, {
                     >
                       License
                     </List.Item>
-                    {/* <List.Item as="a">Contact Us</List.Item> TODO */}
+
                   </List>
                 </Grid.Column>
                 <Grid.Column width={7}>
@@ -288,7 +310,7 @@ export default class Homepage extends React.Component<{}, {
                   <p>Made by <a href="https://github.com/vicbab">Vic SB</a>,
                   adapted from Muncoordinated by <a href="https://github.com/MaxwellBo">Max Bo</a>
                   </p>
-                  <p>Copyright © 2020</p>
+                  <p>Copyright © 2021 - Published under the GNU license.</p>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
