@@ -1,6 +1,14 @@
 {
   "rules": {
     ".read": true,
-    ".write": "auth != null"
+    "committees": {
+      ".write": "auth !=null",
+      "$committees": {
+        "motions":{
+          ".read": true,
+          ".write": true
+        }
+      }
+    }
   }
 }
