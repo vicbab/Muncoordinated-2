@@ -334,7 +334,6 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
           {committee ? committee.name : <Loading small />}
         </Menu.Item>
         {makeMenuItem('Setup', 'users')}
-        {makeMenuItem('Informal', 'discussions')}
         {makeMenuItem('Motions', 'discussions')}
         <Dropdown key="caucuses" item text="Formal Session" loading={!committee}>
           <Dropdown.Menu>
@@ -346,12 +345,6 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
           <Dropdown.Menu>
             {makeSubmenuButton('New resolution', 'add', pushResolution)}
             {resolutionItems}
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown key="strawpoll" item text="Strawpolls" loading={!committee}>
-          <Dropdown.Menu>
-            {makeSubmenuButton('New strawpoll', 'add', pushStrawpoll)}
-            {strawpollItems}
           </Dropdown.Menu>
         </Dropdown>
         {makeMenuItem('Stats', 'chart bar')}
@@ -497,7 +490,7 @@ export default class Committee extends React.Component<Props, State> {
           <Route exact={true} path="/committees/:committeeID/stats" component={Stats} />
           <Route exact={true} path="/committees/:committeeID/speakers" component={SpeakersList} />
           <Route exact={true} path="/committees/:committeeID/:caucusID/speakerslist" component={SpeakersList} />
-          <Route exact={true} path="/committees/:committeeID/informal" component={Unmod} />
+
           <Route exact={true} path="/committees/:committeeID/motions" component={Motions} />
           <Route exact={true} path="/committees/:committeeID/notes" component={Notes} />
           <Route exact={true} path="/committees/:committeeID/posts" component={Files} />
@@ -506,7 +499,6 @@ export default class Committee extends React.Component<Props, State> {
           <Route path="/committees/:committeeID/caucuses/:caucusID" component={Caucus} />
 
           <Route path="/committees/:committeeID/resolutions/:resolutionID/:tab?" component={Resolution} />
-          <Route path="/committees/:committeeID/strawpolls/:strawpollID" component={Strawpoll} />
           <Footer />
         </ResponsiveNav>
       </React.Fragment>
