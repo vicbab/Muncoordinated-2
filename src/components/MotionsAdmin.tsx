@@ -200,11 +200,11 @@ const detailLabel = (motionType: MotionType): string => {
 
 const hasDuration = (motionType: MotionType): boolean => {
   switch (motionType) {
-    // case MotionType.ExtendUnmoderatedCaucus:
-    // case MotionType.ExtendModeratedCaucus:
-    // case MotionType.OpenModeratedCaucus:
-    // case MotionType.OpenUnmoderatedCaucus:
-      // return true;
+    case MotionType.ExtendUnmoderatedCaucus:
+    case MotionType.ExtendModeratedCaucus:
+    case MotionType.OpenModeratedCaucus:
+    case MotionType.OpenUnmoderatedCaucus:
+      return true;
     default:
       return false;
   }
@@ -299,7 +299,7 @@ const DEFAULT_MOTION: MotionData = {
   type: MotionType.OpenUnmoderatedCaucus // this will force it to the top of the list
 };
 
-export default class Motions extends React.Component<Props, State> {
+export default class MotionsAdmin extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
@@ -345,10 +345,7 @@ export default class Motions extends React.Component<Props, State> {
         newMotion: rest
       };
     });
-    alert("The DAIS has received your request. Sending another request of the same type will erase your first one.");
   }
-
-
 
   handleClearMotions = (): void => {
     const { committee } = this.state;
@@ -870,7 +867,13 @@ export default class Motions extends React.Component<Props, State> {
       <Container text style={{ padding: '1em 0em' }}>
         {renderAdder(committee)}
         <Divider />
-        The DAIS receives all requests. <br/>Please only submit a maximum of one request per type at a time.
+
+        <Divider />
+        <Card.Group
+          itemsPerRow={1}
+        >
+          {renderedMotions}
+        </Card.Group>
       </Container>
     );
   }

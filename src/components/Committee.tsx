@@ -15,6 +15,7 @@ import Unmod from './Unmod';
 import Notes from './Notes';
 import Help, { KEYBOARD_SHORTCUT_LIST } from './Help';
 import Motions from './Motions';
+import MotionsAdmin from './MotionsAdmin';
 import { putCaucus } from '../actions/caucus-actions';
 import { URLParameters, Dictionary } from '../types';
 import Loading from './Loading';
@@ -347,7 +348,6 @@ function ResponsiveNav(props: ResponsiveContainerProps) {
             {resolutionItems}
           </Dropdown.Menu>
         </Dropdown>
-        {makeMenuItem('Stats', 'chart bar')}
         <Menu.Menu key="icon-submenu" position="right">
           {makeMenuIcon('Settings', 'settings')}
           {makeMenuIcon('Help', 'help')}
@@ -487,11 +487,10 @@ export default class Committee extends React.Component<Props, State> {
           </Container>
           <Route exact={true} path="/committees/:committeeID" render={renderWelcome} />
           <Route exact={true} path="/committees/:committeeID/setup" render={renderAdmin} />
-          <Route exact={true} path="/committees/:committeeID/stats" component={Stats} />
           <Route exact={true} path="/committees/:committeeID/speakers" component={SpeakersList} />
           <Route exact={true} path="/committees/:committeeID/:caucusID/speakerslist" component={SpeakersList} />
-
           <Route exact={true} path="/committees/:committeeID/motions" component={Motions} />
+          <Route exact={true} path="/committees/:committeeID/motions-admin" component={MotionsAdmin} />
           <Route exact={true} path="/committees/:committeeID/notes" component={Notes} />
           <Route exact={true} path="/committees/:committeeID/posts" component={Files} />
           <Route exact={true} path="/committees/:committeeID/settings" component={Settings} />
