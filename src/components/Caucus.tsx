@@ -208,7 +208,7 @@ export default class Caucus extends React.Component<Props, State> {
 
     const renderedCaucusTimer = (
       <Timer
-        name="Caucus Timer"
+        name="Suspension Timer"
         timerFref={caucusFref.child('caucusTimer')}
         key={caucusID + 'caucusTimer'}
         onChange={this.setCaucusTimer}

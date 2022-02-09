@@ -27,12 +27,22 @@ const REPO_LINK = 'https://github.com/MaxwellBo/Muncoordinated-2';
 /* eslint-disable react/no-multi-comp */
 /* Heads up! GuidesHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
  * such things.
+ <Header
+   as="h2"
+   content="Download your background guide"
+   inverted
+   style={{
+     fontSize: mobile ? '1.5em' : '1.7em',
+     fontWeight: 'normal',
+     marginTop: mobile ? '0.5em' : '1.5em',
+   }}
+ />
  */
 const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
   <Container text>
     <Header
       as="h1"
-      content="Background Guides for QMUN 2021"
+      content="Background Guides for QMUN 2022"
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -41,18 +51,8 @@ const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
         marginTop: mobile ? '1.5em' : '3em',
       }}
     />
-    <Header
-      as="h2"
-      content="Download your background guide"
-      inverted
-      style={{
-        fontSize: mobile ? '1.5em' : '1.7em',
-        fontWeight: 'normal',
-        marginTop: mobile ? '0.5em' : '1.5em',
-      }}
-    />
     <br />
-    <Button as="a" primary size="huge" href="/GA3-QMUN-2021.pdf" target="_blank">
+    <Button as="a" primary size="huge" href="/UNEA-QMUN-2022.pdf" target="_blank">
       Click to download your Background Guide
     </Button>
     <br />
