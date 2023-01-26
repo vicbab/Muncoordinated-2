@@ -69,12 +69,6 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     </Button>
     <br />
     <br />
-    /*<Button as="a" primary size="huge" href="https://bdeb.zoom.us/j/86958002348?pwd=YS9CbmlFMk5EZEt3dzV4dlBCUWNaQT09">
-    *  Zoom UNEA-A
-    *</Button>
-    *<Button as="a" primary size="huge" href="https://bdeb.zoom.us/j/89929697341?pwd=VDUxdXp2N2pIWnVKbVU2UzBHaVpSUT09">
-    *  Zoom UNEA-B
-    */</Button>
     <br />
     <br />
     <br />
