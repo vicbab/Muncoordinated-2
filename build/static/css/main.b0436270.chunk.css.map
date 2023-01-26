@@ -1,1 +1,0 @@
-{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,+BACE,gCAAkC,CAClC,wBACF","file":"main.b0436270.chunk.css","sourcesContent":[".ui.active.progress .bar::after {\n  -webkit-animation: none !important;\n  animation: none !important;\n}\n"]}
