@@ -1,0 +1,9 @@
+# Quoi faire
+
+## 1. Homepage.tsx
+
+Quelques lignes à changer pour l'année
+
+> src/components/Homepage.tsx
+> line 36: content="QMUN 20XX"
+> line 54: content="Quebec Model United Nations Conference 2022"

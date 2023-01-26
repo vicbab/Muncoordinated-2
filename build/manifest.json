@@ -1,0 +1,15 @@
+{
+  "short_name": "Muncoordinated",
+  "name": "Muncoordinated",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#5b92e5",
+  "background_color": "#ffffff"
+}
