@@ -43,12 +43,22 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
       }}
     />
     <br />
-    <Image
-      centered
-      size="small"
-      rounded
-      src="/images/logo.png"
-    />
+    <Grid textAlign="center" vertical>
+      <Grid.Column width={5}>
+        <Image
+          size="massive"
+          rounded
+          src="/images/logo.png"
+        />
+      </Grid.Column>
+      <Grid.Column width={3}>
+        <Image
+          size="massive"
+          rounded
+          src="/images/logo-qmun.png"
+        />
+      </Grid.Column>
+    </Grid>
     <Header
       as="h2"
       content="Quebec Model United Nations Conference 2023"

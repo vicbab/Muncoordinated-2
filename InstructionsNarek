@@ -2,8 +2,37 @@
 
 ## 1. Homepage.tsx
 
-Quelques lignes à changer pour l'année
+### Changer l'année
 
 > src/components/Homepage.tsx
 > line 36: content="QMUN 20XX"
 > line 54: content="Quebec Model United Nations Conference 2022"
+
+### Ajouter un logo
+
+
+
+## 2. Guides.tsx
+
+> src/components/Guides.tsx
+> line 55: <Button as="a" primary size="huge" href="/UNEA-QMUN-2022.pdf"
+> changer le href au nouveau guide en mettant le guide dans le folder "public"
+
+## 3. Building & Updating
+
+> cd .\OneDrive\Documents\GitHub\Muncoordinated-2
+> yarn build
+> firebase deploy
+
+## 4. If you just want to run a local server
+
+> yarn start
+
+## 5. Zoom Buttons
+
+<Button as="a" primary size="huge" href="https://bdeb.zoom.us/j/86958002348?pwd=YS9CbmlFMk5EZEt3dzV4dlBCUWNaQT09">
+ Zoom UNEA-A
+</Button>
+<Button as="a" primary size="huge" href="https://bdeb.zoom.us/j/89929697341?pwd=VDUxdXp2N2pIWnVKbVU2UzBHaVpSUT09">
+ Zoom UNEA-B
+</Button>
