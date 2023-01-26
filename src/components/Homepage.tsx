@@ -33,7 +33,7 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
   <Container text>
     <Header
       as="h1"
-      content="QMUN 2022"
+      content="QMUN 2023"
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -51,7 +51,7 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     />
     <Header
       as="h2"
-      content="Quebec Model United Nations Conference 2022"
+      content="Quebec Model United Nations Conference 2023"
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -69,12 +69,12 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     </Button>
     <br />
     <br />
-    <Button as="a" primary size="huge" href="https://bdeb.zoom.us/j/86958002348?pwd=YS9CbmlFMk5EZEt3dzV4dlBCUWNaQT09">
-      Zoom UNEA-A
-    </Button>
-    <Button as="a" primary size="huge" href="https://bdeb.zoom.us/j/89929697341?pwd=VDUxdXp2N2pIWnVKbVU2UzBHaVpSUT09">
-      Zoom UNEA-B
-    </Button>
+    //<Button as="a" primary size="huge" href="https://bdeb.zoom.us/j/86958002348?pwd=YS9CbmlFMk5EZEt3dzV4dlBCUWNaQT09">
+    //  Zoom UNEA-A
+    //</Button>
+    //<Button as="a" primary size="huge" href="https://bdeb.zoom.us/j/89929697341?pwd=VDUxdXp2N2pIWnVKbVU2UzBHaVpSUT09">
+    //  Zoom UNEA-B
+    //</Button>
     <br />
     <br />
     <br />
@@ -304,7 +304,7 @@ export default class Homepage extends React.Component<{}, {
                   <p>Made by <a href="https://github.com/vicbab">Victor Babin</a>,
                   adapted from Muncoordinated by <a href="https://github.com/MaxwellBo">Max Bo</a>
                   </p>
-                  <p>Copyright © 2022 - Published under the GNU license.</p>
+                  <p>Copyright © 2023 - Published under the GNU license.</p>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
