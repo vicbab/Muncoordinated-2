@@ -78,21 +78,9 @@ export default function CaucusQueuer(props: Props) {
         />
         <Button.Group size="large" fluid>
           <Button
-            content="For"
             disabled={disableButtons}
-            onClick={setStance(Stance.For)}
-          />
-          <Button.Or />
-          <Button
-            disabled={disableButtons}
-            content="Neutral"
+            content="Add to queue"
             onClick={setStance(Stance.Neutral)}
-          />
-          <Button.Or />
-          <Button
-            disabled={disableButtons}
-            content="Against"
-            onClick={setStance(Stance.Against)}
           />
         </Button.Group>
       </Form>

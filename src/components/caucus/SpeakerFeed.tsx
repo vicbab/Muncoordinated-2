@@ -86,16 +86,9 @@ export class SpeakerFeedEntry extends React.PureComponent<{
           <Feed.Date>{data ? data.duration.toString() + ' seconds': ''}</Feed.Date>
         </Feed.Summary>
         <Feed.Meta>
-          <Feed.Like>
-            {data && <StanceIcon stance={data.stance} />}
-            {data ? data.stance : ''}
-          </Feed.Like>
           {data && <Label size="mini" as="a" onClick={() => fref.remove()}>
             Remove
           </Label>}
-          {data && speaking && (<Label size="mini" as="a" onClick={this.yieldHandler}>
-            Yield
-          </Label>)}
         </Feed.Meta>
       </Feed.Content>
     )
@@ -151,7 +144,7 @@ export const SpeakerFeed = (props: {
             speaking={speaking}
             speakerTimer={speakerTimer}
           />
-          
+
         }
       </Draggable>
     )

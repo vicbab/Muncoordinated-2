@@ -166,11 +166,6 @@ export function SpeakersListVisual(props: Props) {
     <Segment textAlign="center" loading={!caucus}>
       <Label attached="top left" size="large">Next Speaking</Label>
       {button}
-      <Popup
-        trigger={interlaceButton}
-        content="Orders the list so that speakers are
-        'For', then 'Against', then 'Neutral', then 'For', etc."
-      />
       <SpeakerFeed
         data={caucus ? caucus.queue : undefined}
         queueFref={props.fref.child('queue')}

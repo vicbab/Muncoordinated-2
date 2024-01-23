@@ -33,7 +33,7 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
   <Container text>
     <Header
       as="h1"
-      content="QMUN 2023"
+      content="QMUN"
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -61,7 +61,7 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     </Grid>
     <Header
       as="h2"
-      content="Quebec Model United Nations Conference 2023"
+      content="Quebec Model United Nations Conference"
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',

@@ -91,7 +91,7 @@ class Entry extends React.Component<EntryProps, EntryState> {
   }
 
   download = (filename: string) => () => {
-    // We should never allow a download to be triggered for post types that 
+    // We should never allow a download to be triggered for post types that
     // don't permit downloads
     this.recoverStorageRef()!.getDownloadURL().then((url: any) => {
       var xhr = new XMLHttpRequest();
@@ -157,7 +157,9 @@ class Entry extends React.Component<EntryProps, EntryState> {
             <Feed.User><Flag name={parseFlagName(post.uploader)}/> {post.uploader}</Feed.User> uploaded a file
             <Feed.Date>{this.renderDate('Uploaded')}</Feed.Date>
           </Feed.Summary>
-          <Feed.Extra><a onClick={this.download(post.filename)}>{post.filename}</a></Feed.Extra>
+          <Feed.Extra>
+          <a onClick={this.download(post.filename)}>{post.filename}</a>
+          </Feed.Extra>
           <Feed.Meta>
             <a onClick={this.props.onDelete}>Delete</a>
           </Feed.Meta>
@@ -316,13 +318,13 @@ export default class Files extends React.Component<Props, State> {
       .put(file, metadata);
 
     uploadTask.on(
-      firebase.storage.TaskEvent.STATE_CHANGED, 
-      handleSnapshot, 
-      handleError, 
+      firebase.storage.TaskEvent.STATE_CHANGED,
+      handleSnapshot,
+      handleError,
       handleComplete(uploadTask)
     );
   }
-  
+
   postLink = () => {
     const { uploader, link, body } = this.state;
     const { forResolution } = this.props;
@@ -366,7 +368,7 @@ export default class Files extends React.Component<Props, State> {
     }
 
     this.state.committeeFref.child('files').push().set(linkData);
-    
+
     this.clear()
   }
 
@@ -383,14 +385,14 @@ export default class Files extends React.Component<Props, State> {
 
     return (
       <React.Fragment>
-        <Progress 
-          percent={Math.round(progress || 0 )} 
-          progress 
+        <Progress
+          percent={Math.round(progress || 0 )}
+          progress
           warning={state === firebase.storage.TaskState.PAUSED}
           success={state === firebase.storage.TaskState.SUCCESS}
-          error={!!errorCode} 
-          active={true} 
-          label={errorCode} 
+          error={!!errorCode}
+          active={true}
+          label={errorCode}
         />
         <Form onSubmit={this.postFile}>
           <input type="file" onChange={this.onFileChange} />
@@ -497,7 +499,7 @@ export default class Files extends React.Component<Props, State> {
           label="Name"
           rows={1}
         />
-        <Form.Input 
+        <Form.Input
           label="Link"
           required
           error={!link}
@@ -518,8 +520,8 @@ export default class Files extends React.Component<Props, State> {
             options={memberOptions}
             label="Poster"
           />
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             disabled={!link || !uploader}
           >
               Post
@@ -556,8 +558,8 @@ export default class Files extends React.Component<Props, State> {
             options={memberOptions}
             label="Poster"
           />
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             disabled={!body || !uploader}
           >
               Post
@@ -566,7 +568,7 @@ export default class Files extends React.Component<Props, State> {
       </Form>
     );
   }
-  
+
   isFiltered = (post: PostData) => {
     const { filtered } = this.state;
 
@@ -578,7 +580,7 @@ export default class Files extends React.Component<Props, State> {
     if (filtered.includes(post.uploader)) {
       return true;
     }
-    
+
     // For default country members
     return COUNTRY_OPTIONS
       .filter(x => filtered.includes(x.key))
@@ -605,25 +607,25 @@ export default class Files extends React.Component<Props, State> {
     const files = committee ? (committee.files || {}) : {};
 
     const panes = [
-      { 
-        menuItem: { key: 'Text', icon: TEXT_ICON, content: 'Text' }, 
-        render: () => <Tab.Pane>{this.renderPoster()}</Tab.Pane> 
+      {
+        menuItem: { key: 'Text', icon: TEXT_ICON, content: 'Text' },
+        render: () => <Tab.Pane>{this.renderPoster()}</Tab.Pane>
       },
-      { 
-        menuItem: { key: 'Link', icon: LINK_ICON, content: 'Link' }, 
+      {
+        menuItem: { key: 'Link', icon: LINK_ICON, content: 'Link' },
         render: () => <Tab.Pane>{this.renderLinker()}</Tab.Pane>
       },
-      { 
-        menuItem: { key: 'File', icon: FILE_ICON, content: 'File' }, 
-        render: () => <Tab.Pane>{this.renderUploader()}</Tab.Pane> 
+      {
+        menuItem: { key: 'File', icon: FILE_ICON, content: 'File' },
+        render: () => <Tab.Pane>{this.renderUploader()}</Tab.Pane>
       },
     ];
 
     const inner = (
       <>
-        <Tab 
+        <Tab
           menu={{ attached: true, tabular: false }}
-          panes={panes} 
+          panes={panes}
         />
         {this.renderFilter()}
         <Feed size="large">
@@ -631,8 +633,8 @@ export default class Files extends React.Component<Props, State> {
             .filter(key => this.isFiltered(files[key]))
             .filter(key => this.isResolutionAssociated(files[key]))
             .map(key =>
-              <Entry 
-                key={key} 
+              <Entry
+                key={key}
                 onDelete={this.deletePost(key)}
                 onPromoteToAmendment={this.promoteToAmendment(files[key])}
                 committeeID={committeeID}

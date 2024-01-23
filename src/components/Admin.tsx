@@ -72,14 +72,14 @@ export function makeCommitteeStats(data?: CommitteeData) {
   const draftResolution: number = Math.ceil(canVoteNo * 0.25);
   const amendment: number       = Math.ceil(canVoteNo * 0.1);
 
-  return { delegatesNo, presentNo, absCanVote, canVoteNo, nonNGONo, quorum, 
+  return { delegatesNo, presentNo, absCanVote, canVoteNo, nonNGONo, quorum,
     procedural, operative, hasQuorum, draftResolution, amendment, twoThirdsMajority, simpleMajority };
 }
 
 export function CommitteeStats(props: { data?: CommitteeData, verbose: boolean }) {
   const { data, verbose } = props;
 
-  const  { delegatesNo, presentNo, absCanVote, canVoteNo, nonNGONo, quorum, 
+  const  { delegatesNo, presentNo, absCanVote, canVoteNo, nonNGONo, quorum,
     procedural, operative, hasQuorum, draftResolution, amendment, twoThirdsMajority } = makeCommitteeStats(data);
 
   return (
@@ -170,28 +170,18 @@ export default class Admin extends React.Component<Props, State> {
           <Flag name={parseFlagName(member.name)} />
           {member.name}
         </Table.Cell>
-        <Table.Cell>
-          <Dropdown
-            search
-            selection
-            fluid
-            options={RANK_OPTIONS}
-            onChange={dropdownHandler<MemberData>(fref, 'rank')}
-            value={member.rank}
+        <Table.Cell collapsing>
+          <Checkbox
+            toggle
+            checked={member.present}
+            onChange={checkboxHandler<MemberData>(fref, 'present')}
           />
         </Table.Cell>
         <Table.Cell collapsing>
-          <Checkbox 
-            toggle 
-            checked={member.present} 
-            onChange={checkboxHandler<MemberData>(fref, 'present')} 
-          />
-        </Table.Cell>
-        <Table.Cell collapsing>
-          <Checkbox 
-            toggle 
-            checked={member.voting} 
-            onChange={checkboxHandler<MemberData>(fref, 'voting')} 
+          <Checkbox
+            toggle
+            checked={member.voting}
+            onChange={checkboxHandler<MemberData>(fref, 'voting')}
           />
         </Table.Cell>
         <Table.Cell collapsing>
@@ -207,11 +197,11 @@ export default class Admin extends React.Component<Props, State> {
     );
   }
 
-  canPush = () => { 
+  canPush = () => {
     const { member: newMember } = this.state;
 
     const members = this.props.committee.members || {};
-    const memberNames = Object.keys(members).map(id => 
+    const memberNames = Object.keys(members).map(id =>
       members[id].name
     );
 
@@ -293,31 +283,20 @@ export default class Admin extends React.Component<Props, State> {
             value={newMember.key}
           />
         </Table.HeaderCell>
-        <Table.HeaderCell>
-          <Dropdown
-            className="adder__dropdown--select-rank"
-            search
-            selection
-            fluid
-            options={RANK_OPTIONS}
-            onChange={setRank}
-            value={this.state.rank}
-          />
-        </Table.HeaderCell>
         <Table.HeaderCell collapsing >
-          <Checkbox 
+          <Checkbox
             className="adder__checkbox--toggle-present"
-            toggle 
-            checked={newMemberPresent} 
-            onChange={setPresent} 
+            toggle
+            checked={newMemberPresent}
+            onChange={setPresent}
           />
         </Table.HeaderCell>
         <Table.HeaderCell collapsing >
-          <Checkbox 
+          <Checkbox
             className="adder__checkbox--toggle-voting"
-            toggle 
-            checked={newMemberVoting} 
-            onChange={setVoting} 
+            toggle
+            checked={newMemberVoting}
+            onChange={setVoting}
           />
         </Table.HeaderCell>
         <Table.HeaderCell>
@@ -347,7 +326,6 @@ export default class Admin extends React.Component<Props, State> {
           <Table.Header>
             <Table.Row>
               <Table.HeaderCell />
-              <Table.HeaderCell>Rank</Table.HeaderCell>
               <Table.HeaderCell>Present</Table.HeaderCell>
               <Table.HeaderCell>Voting</Table.HeaderCell>
               <Table.HeaderCell />
@@ -384,12 +362,12 @@ export default class Admin extends React.Component<Props, State> {
     const { committee, fref } = this.props;
 
     const panes = [
-      { 
-        menuItem: 'Members', 
-        render: () => <Tab.Pane><CommitteeMembers data={committee} fref={fref} /></Tab.Pane> 
+      {
+        menuItem: 'Members',
+        render: () => <Tab.Pane><CommitteeMembers data={committee} fref={fref} /></Tab.Pane>
       },
-      { 
-        menuItem: 'Thresholds', 
+      {
+        menuItem: 'Thresholds',
         render: () => <Tab.Pane><CommitteeStats verbose={true} data={committee} /></Tab.Pane>
       }
     ];

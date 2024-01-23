@@ -1,12 +1,40 @@
 {
   "rules": {
-    ".read": true,
     "committees": {
-      ".write": "auth !=null",
-      "$committees": {
-        "motions":{
-          ".read": true,
-          ".write": true
+      ".indexOn": ["creatorUid"],
+      ".read": true,
+    	"$uid": {
+        ".read": true,
+        ".write": "auth != null && (newData.child('creatorUid').val() === auth.uid || data.child('creatorUid').val() === auth.uid)",
+        "caucuses": {
+          "$cid" : {
+            "queue": {
+              "$qid": {
+                ".write": "!data.exists() && newData.exists() && data.parent().parent().child('queueIsPublic').val() === true"
+              }
+            }
+          }
+        },
+      	"motions": {
+          "$mid": {
+            ".write": true,
+            ".read": "auth != null"
+          }
+        },
+        "resolutions": {
+          "$rid" : {
+            ".write":true,
+            "amendments": {
+              "$aid": {
+                ".write": true
+              }
+            }
+          }
+        },
+        "files": {
+          "$fid": {
+            ".write": "newData.exists()"
+          }
         }
       }
     }

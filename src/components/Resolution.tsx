@@ -803,11 +803,8 @@ export default class Resolution extends React.Component<Props, State> {
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
-            <Grid.Column width={11}>
+            <Grid.Column>
               <Tab panes={panes} onTabChange={this.onTabChange} activeIndex={index}/>
-            </Grid.Column>
-            <Grid.Column width={5}>
-              {this.renderMeta(resolution)}
             </Grid.Column>
           </Grid.Row>
         </Grid >

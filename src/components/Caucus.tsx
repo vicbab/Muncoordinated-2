@@ -77,7 +77,7 @@ export const DEFAULT_CAUCUS: CaucusData = {
   speakerDuration: DEFAULT_SPEAKER_TIME_SECONDS,
   speakerUnit: Unit.Seconds,
   caucusTimer: { ...DEFAULT_TIMER, remaining: DEFAULT_CAUCUS_TIME_SECONDS },
-  queueIsPublic: false,
+  queueIsPublic: true,
   queue: {} as Dictionary<string, SpeakerEvent>,
   history: {} as Dictionary<string, SpeakerEvent>,
 };
