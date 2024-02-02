@@ -1,7 +1,7 @@
 import * as React from 'react';
 import firebase from 'firebase/app';
 import { MemberData } from '../Member';
-import { CaucusData, recoverDuration, recoverUnit } from '../Caucus';
+import { CaucusData, recoverDuration, recoverUnit, recoverQueue } from '../Caucus';
 import { MemberOption } from '../../constants';
 import { Segment, Button, Form, DropdownProps, Label } from 'semantic-ui-react';
 import { TimerSetter, Unit } from '../TimerSetter';
@@ -9,6 +9,10 @@ import { SpeakerEvent, Stance } from '..//caucus/SpeakerFeed';
 import { checkboxHandler, validatedNumberFieldHandler, dropdownHandler } from '../../actions/handlers';
 import { membersToOptions } from '../../utils';
 import { Dictionary } from '../../types';
+import { SpeakerFeed } from './SpeakerFeed';
+import { CaucusNextSpeaking } from '..//caucus/CaucusNextSpeaking'
+import _ from 'lodash';
+import { useObjectVal } from 'react-firebase-hooks/database';
 
 interface Props {
   caucus?: CaucusData;
@@ -22,8 +26,12 @@ export default function CaucusQueuer(props: Props) {
 
   const setStance = (stance: Stance) => () => {
     const { caucus } = props;
-
     const duration = Number(recoverDuration(caucus));
+    const q = recoverQueue(caucus);
+
+    let skips = false;
+
+
 
     if (duration && queueMember) {
       const newEvent: SpeakerEvent = {
@@ -32,7 +40,20 @@ export default function CaucusQueuer(props: Props) {
         duration: recoverUnit(caucus) === Unit.Minutes ? duration * 60 : duration,
       };
 
-      props.caucusFref.child('queue').push().set(newEvent);
+      try {
+        for (let [key, value] of Object.entries(q!)) {
+          if(value.who == newEvent.who){
+            skips=true;
+          }
+        }
+      } catch (error) {
+        skips = false;
+      }
+
+
+      if (!skips){
+        props.caucusFref.child('queue').push().set(newEvent);
+      }
     }
   }
 

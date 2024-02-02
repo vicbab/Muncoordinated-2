@@ -24,6 +24,10 @@ export function recoverUnit(caucus?: CaucusData): Unit {
   return caucus ? (caucus.speakerUnit || Unit.Seconds) : Unit.Seconds;
 }
 
+export function recoverQueue(caucus?: CaucusData): Dictionary<string, SpeakerEvent> | undefined {
+  return caucus ? (caucus.queue) : undefined;
+}
+
 export function recoverDuration(caucus?: CaucusData): number | undefined {
   return caucus
     ? caucus.speakerDuration

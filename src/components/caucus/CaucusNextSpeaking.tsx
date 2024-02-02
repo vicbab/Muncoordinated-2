@@ -20,7 +20,7 @@ interface Props {
 
 export function CaucusNextSpeaking(props: Props) {
   const [user] = useAuthState(firebase.auth());
-  console.log("allo la gagne")
+  console.log("allo la gagne");
   const handleKeyDown = (ev: KeyboardEvent) => {
     // if changing this, update Help
     if (ev.keyCode === 78 && ev.altKey) {

@@ -125,11 +125,11 @@ export default class Caucus extends React.Component<Props, State> {
     const caucusFref = this.recoverCaucusFref();
 
     const statusDropdown = (
-      <Dropdown 
-        value={caucus ? caucus.status : CaucusStatus.Open} 
-        options={CAUCUS_STATUS_OPTIONS} 
-        onChange={dropdownHandler<CaucusData>(caucusFref, 'status')} 
-      /> 
+      <Dropdown
+        value={caucus ? caucus.status : CaucusStatus.Open}
+        options={CAUCUS_STATUS_OPTIONS}
+        onChange={dropdownHandler<CaucusData>(caucusFref, 'status')}
+      />
     );
 
     return (
@@ -160,7 +160,7 @@ export default class Caucus extends React.Component<Props, State> {
 
   renderNowSpeaking =  (caucus?: CaucusData) => {
     const { speakerTimer } = this.state;
-    
+
     const caucusFref = this.recoverCaucusFref();
 
     const entryData = caucus ? caucus.speaking : undefined;
@@ -216,10 +216,10 @@ export default class Caucus extends React.Component<Props, State> {
       />
     );
 
-    const { 
-      autoNextSpeaker, 
-      timersInSeparateColumns, 
-      moveQueueUp 
+    const {
+      autoNextSpeaker,
+      timersInSeparateColumns,
+      moveQueueUp
     } = recoverSettings(committee);
 
     const header = (
@@ -231,18 +231,18 @@ export default class Caucus extends React.Component<Props, State> {
     );
 
     const renderedCaucusQueuer = (
-      <CaucusQueuer 
-        caucus={caucus} 
-        members={members} 
-        caucusFref={caucusFref} 
+      <CaucusQueuer
+        caucus={caucus}
+        members={members}
+        caucusFref={caucusFref}
       />
     );
 
     const renderedCaucusNextSpeaking = (
-      <CaucusNextSpeaking 
-        caucus={caucus} 
-        fref={caucusFref} 
-        speakerTimer={speakerTimer} 
+      <CaucusNextSpeaking
+        caucus={caucus}
+        fref={caucusFref}
+        speakerTimer={speakerTimer}
         autoNextSpeaker={autoNextSpeaker}
       />
     );
