@@ -33,7 +33,7 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
   <Container text>
     <Header
       as="h1"
-      content="QMUN"
+      content="QMUN 2026"
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -72,7 +72,7 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
 
     <br />
     <Button as="a" primary size="huge" href="/committees/-MEZXMLXacUeaJyXM4zR">
-      Hub Committe A
+      Hub Committee A
     </Button>
     <Button as="a" primary size="huge" href="/committees/-MT2m3_0wvJdSHeKrk4-">
       Hub Committee B
