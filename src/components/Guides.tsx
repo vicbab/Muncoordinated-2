@@ -42,7 +42,7 @@ const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
   <Container text>
     <Header
       as="h1"
-      content="Background Guides for QMUN 2022"
+      content="Background Guides for QMUN 2026"
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -52,7 +52,7 @@ const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
       }}
     />
     <br />
-    <Button as="a" primary size="huge" href="/QMUN 2026 - BGG.pdf" target="_blank">
+    <Button as="a" primary size="huge" href="/QMUN-2026 - BGG.pdf" target="_blank">
       Click to download your Background Guide
     </Button>
     <br />

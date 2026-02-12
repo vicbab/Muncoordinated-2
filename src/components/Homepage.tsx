@@ -33,7 +33,7 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
   <Container text>
     <Header
       as="h1"
-      content="QMUN"
+      content="QMUN 2026"
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
