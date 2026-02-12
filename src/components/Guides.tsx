@@ -52,7 +52,7 @@ const GuidesHeading = ({ mobile }: GuidesHeadingProps) => (
       }}
     />
     <br />
-    <Button as="a" primary size="huge" href="/Background-Guide-UNEA-2023.pdf" target="_blank">
+    <Button as="a" primary size="huge" href="/QMUN 2026 - BGG.pdf" target="_blank">
       Click to download your Background Guide
     </Button>
     <br />
