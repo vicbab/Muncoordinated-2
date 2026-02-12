@@ -71,10 +71,10 @@ const HomepageHeading = ({ mobile }: HomepageHeadingProps) => (
     />
 
     <br />
-    <Button as="a" primary size="huge" href="/committees/-MEZXMLXacUeaJyXM4zR">
-      Hub Committe A
+    <Button as="a" primary size="huge" href="/committees/-OlFna7Z_4HHqHFJhzXC">
+      Hub Committee A
     </Button>
-    <Button as="a" primary size="huge" href="/committees/-MT2m3_0wvJdSHeKrk4-">
+    <Button as="a" primary size="huge" href="/committees/-OlFnrEHPteuZDM3ROww">
       Hub Committee B
     </Button>
     <br />
